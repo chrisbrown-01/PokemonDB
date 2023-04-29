@@ -1,0 +1,59 @@
+﻿.content-layout {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    border: solid;
+    border-width: 1px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.sidepanel {
+    flex: 0 0 15%;
+    border: solid;
+    border-width: 1px;
+    margin: 5px;
+    padding: 10px;
+    max-height: 85vh;
+    overflow-y: auto;
+    top: 1vh;
+    position: sticky;
+}
+
+.navbar-layout ul {
+    border-radius: 10px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #21abab;
+    text-align: right;
+}
+
+.navbar-layout img {
+    float: left;
+    max-width: 10rem;
+}
+
+.navbar-layout li {
+    display: inline-block;
+}
+
+    .navbar-layout li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        .navbar-layout li a:hover {
+            background-color: lightseagreen;
+        }
+
+.active {
+    font-weight: bold;
+    transform: scale(1.25);
+}

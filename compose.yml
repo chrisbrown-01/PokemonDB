@@ -1,0 +1,56 @@
+services:
+  mssql-pokemon-db:
+    image: conkythegreat/mssql-pokemon-db:latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=StrongPassword@1
+    ports:
+      - 55555:1433
+    networks:
+      - pokemondb-network
+    healthcheck:
+      test: [ "CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "SA", "-P", "StrongPassword@1", "-Q", "SELECT 1" ]
+      start_period: 15s
+
+  mongo-pokemon-db:
+    image: conkythegreat/mongo-pokemon-db:latest
+    ports:
+      - 55556:27017
+    networks:
+      - pokemondb-network
+    healthcheck:
+      test: [ "CMD-SHELL", "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet" ]
+      start_period: 15s
+
+  redis-pokemon-db:
+    image: redis:latest
+    ports:
+      - 55557:6379
+    networks:
+      - pokemondb-network
+    healthcheck:
+      test: [ "CMD-SHELL", "redis-cli ping || exit 1" ]
+      start_period: 15s
+
+  backend-pokemon-db:
+    image: conkythegreat/backend-pokemon-db:latest
+    ports:
+      - 55558:80
+    networks:
+      - pokemondb-network
+    depends_on:
+      - mssql-pokemon-db
+      - mongo-pokemon-db
+      - redis-pokemon-db
+
+  frontend-pokemon-db:
+    image: conkythegreat/frontend-pokemon-db:latest
+    ports:
+      - 55559:80
+    networks:
+      - pokemondb-network
+    depends_on:
+      - backend-pokemon-db
+
+networks:
+  pokemondb-network:

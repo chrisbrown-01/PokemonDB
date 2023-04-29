@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "PokemonApi_Integration_Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57487;http://localhost:57488"
+    }
+  }
+}

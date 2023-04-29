@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
+
+a {
+    color: #0366d6;
+}
+
+code {
+    color: #E01A76;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+footer {
+    background-color: #21abab;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+    footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+.error-msg {
+    color: red;
+    font-weight: bold;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+    .center > img {
+        display: "inline-block";
+        margin: 1em;
+    }
+
+.input-and-button-spacing {
+    margin: 1em;
+}
+
+.search-form-item {
+    margin: 0.25em;
+    width: 16em;
+}
+
+.searchbar {
+    position: relative;
+    display: inline-block;
+}
+
+    .searchbar > ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        z-index: 99;
+    }
+
+        .searchbar > ul > li {
+            padding: 5px 10px;
+            cursor: pointer;
+        }

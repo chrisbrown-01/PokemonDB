@@ -1,0 +1,26 @@
+﻿.profiles-item {
+    text-align: center;
+    background-color: ghostwhite;
+    border: 1px solid;
+    border-color: darkcyan;
+    margin: 0.6rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+    .profiles-item > img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+.profiles-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: 1rem;
+}
+
+.profiles-item > img:hover {
+    cursor: pointer;
+}

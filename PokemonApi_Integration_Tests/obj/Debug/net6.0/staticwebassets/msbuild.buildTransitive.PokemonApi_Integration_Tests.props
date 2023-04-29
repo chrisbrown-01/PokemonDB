@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PokemonApi_Integration_Tests.props" />
+</Project>

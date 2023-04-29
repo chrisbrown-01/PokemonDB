@@ -1,0 +1,4 @@
+CREATE PROCEDURE spPokemonStats_GetAll_NamesAndPokedexNums
+AS
+SELECT name, pokedex_number FROM PokemonStats
+GO;

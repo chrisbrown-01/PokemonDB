@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonApi", "PokemonApi.csproj", "{FC24ADE4-3588-424D-81AF-1150941D6B33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonApi_Integration_Tests", "..\PokemonApi_Integration_Tests\PokemonApi_Integration_Tests.csproj", "{E035B41D-E2D2-404C-A697-B5D1AB914EA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonApi_Unit_And_Middleware_Tests", "..\PokemonApi_Unit_And_Middleware_Tests\PokemonApi_Unit_And_Middleware_Tests.csproj", "{18AAF92D-2B05-430D-AC7B-7281767F4E91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC24ADE4-3588-424D-81AF-1150941D6B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC24ADE4-3588-424D-81AF-1150941D6B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC24ADE4-3588-424D-81AF-1150941D6B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC24ADE4-3588-424D-81AF-1150941D6B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E035B41D-E2D2-404C-A697-B5D1AB914EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E035B41D-E2D2-404C-A697-B5D1AB914EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E035B41D-E2D2-404C-A697-B5D1AB914EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E035B41D-E2D2-404C-A697-B5D1AB914EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18AAF92D-2B05-430D-AC7B-7281767F4E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18AAF92D-2B05-430D-AC7B-7281767F4E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18AAF92D-2B05-430D-AC7B-7281767F4E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18AAF92D-2B05-430D-AC7B-7281767F4E91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {417FEA46-17A3-445A-87EF-8B2F7420C657}
+	EndGlobalSection
+EndGlobal
