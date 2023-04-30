@@ -78,11 +78,11 @@ The frontend/webpages were created using React via the create-react-app template
 ### Credits
 
 - The Pokemon stats data was obtained from this [Kaggle csv file](https://www.kaggle.com/datasets/rounakbanik/pokemon). Note that some of the data has been modified to ensure consistency and operability with the backend.
-- The Pokemon images data was obtained from this [Kaggle dataset](https://www.kaggle.com/datasets/kvpratama/pokemon-images-dataset). All image data in the backend of this project is represented as a base64 encoded string.
+- The Pokemon images were obtained from this [Kaggle dataset](https://www.kaggle.com/datasets/kvpratama/pokemon-images-dataset). All image data in the backend of this project is represented as a base64 encoded string.
 - The online CSV to SQL tool used for creating the Pokemon stats SQL database can be found [here](https://www.convertcsv.com/csv-to-sql.htm).
 
 ### Misc. Comments
 
 - SSL/HTTPS protocol is not supported, only plain HTTP is used. If the containers are running but you are unable to connect to any of the frontend pages or backend Swagger UI, check to make sure the url is using HTTP.
-- The WatchDog logging package consistently logs random exceptions related to threadlocks. This is something to do with the package's default usage of LiteDB and I could not figure out how to solve the issue. In the future I would instead try to sink all of the WatchDog logs to a custom database instance, or more likely just implement my own logging solution that is much more lightweight. 
+- The WatchDog logging package consistently logs random exceptions related to read/write locks. This is something to do with the package's default usage of LiteDB and I could not figure out how to solve the issue. In the future I would instead try to sink all of the WatchDog logs to a custom database instance, or more likely just implement my own logging solution that is much more lightweight. 
 - A major improvement for future projects would be to create an Nginx container running inside the Docker network that handles the HTTP communications between the frontend and backend container. Currently the front/backend containers are communicating via exposed external ports on the localhost, which requires CORS policies to be in place within the backend.
