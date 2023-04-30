@@ -14,11 +14,11 @@ MSSQL:
 
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=StrongPassword@1" -p 55555:1433 --name mssql-pokemon-db --hostname mssql-pokemon-db --net pokemondb-network --health-cmd="/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'StrongPassword@1' -Q 'SELECT 1' || exit 1" --health-start-period=15s -d mcr.microsoft.com/mssql/server:latest
 
-2. Either upload directly into the container or the volume the .sql files that create the database and stored procedures. Ensure path of the CreatePokemonDB.sql file is as follows:
+2. Directly upload into the container the .sql files that create the database and stored procedures. Ensure path of the CreatePokemonDB.sql file is as follows:
 
 /var/opt/mssql/CreatePokemonDB/CreatePokemonDB.sql
 
-3. Run command on docker container to create database:
+3. Run command in docker container to create database:
 
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "StrongPassword@1" -i /var/opt/mssql/CreatePokemonDB/CreatePokemonDB.sql
 
@@ -32,11 +32,11 @@ Mongo:
 
 docker run -p 55556:27017 --net pokemondb-network --health-cmd="echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet" --health-start-period=15s --name mongo-pokemon-db -d conkythegreat/mongo-novolume:latest
 
-2. Either upload directly into the container or the volume the .json file that creates the database. Ensure path of the mongoJsonDB.json file is as follows:
+2. Directly upload into the container the .json file that creates the database. Ensure path of the mongoJsonDB.json file is as follows:
 
 /data/db/mongoJsonDB/mongoJsonDB.json
 
-3. Run command on docker container to create database:
+3. Run command in docker container to create database:
 
 mongoimport --jsonArray  -d PokemonImagesDb -c PokemonImages /data/db/mongoJsonDB/mongoJsonDB.json
 
@@ -47,6 +47,7 @@ Redis:
 1. Create Redis container:
 
 docker run -p 55557:6379 --name redis-pokemon-db --net pokemondb-network --health-cmd="redis-cli ping || exit 1" --health-start-period=15s -d redis:latest
+
 -----------------------------------------
 
 .Net Api Backend:
@@ -97,6 +98,7 @@ To manually setup project containers using pre-built images:
 4. docker run -p 55558:80 --net pokemondb-network --name backend-pokemon-db -d conkythegreat/backend-pokemon-db:latest
 
 5. docker run -p 55559:80 --name frontend-pokemon-db --net pokemondb-network -d conkythegreat/frontend-pokemon-db:latest
+
 -----------------------------------------
 
 To automatically setup project containers using Docker compose:
@@ -115,5 +117,3 @@ Redis: 55557
 React frontend: 55559
 
 -----------------------------------------
-
-
