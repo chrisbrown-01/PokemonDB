@@ -26,7 +26,7 @@ The frontend/webpages were created using React via the create-react-app template
 
 ![Favourites page](/Images/Favourites.PNG)
 
-**ADVANCED SEARCH PAGE** - Make sophisticated queries for Pokemon based on the available filters. Add or remove filter rows and click the submit button to determine the intersection of all Pokemon that satisfy the conditions of each filter row. A maximum of 5 filter rows can be applied. Click on one of the returned Pokemon hyperlinks to navigate to that Pokemon's stats page.
+**ADVANCED SEARCH PAGE** - Make sophisticated queries for Pokemon. Add or remove filter rows and click the submit button to determine the intersection of all Pokemon that satisfy all conditions of the applied filters. A maximum of 5 filter rows can be applied. Click on one of the returned Pokemon hyperlinks to navigate to that Pokemon's stats page.
 
 ![Advanced Search page](/Images/AdvancedSearch.PNG)
 
