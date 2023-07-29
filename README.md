@@ -6,6 +6,8 @@ PokemonDB is a web app created entirely by myself. The main purpose of this proj
 
 The frontend/webpages were created using React via the create-react-app template. The frontend makes all data requests to an ASP.NET Core REST web API, which serves all of the Pokemon stats and images back to the frontend via JSON responses. The API retrieves the Pokemon stats from an MsSQL Server database, and retrieves the Pokemon images data from a MongoDb database. All data retrieved from the databases is temporarily cached in a Redis cache for better performance. Each service runs independently in a Docker container (ie. there are 5 containers: *frontend, backend API, MsSQL Server, Mongo, Redis*). 
 
+![Screen recording gif](/Images/screen-recording.gif)
+
 ### Project Overview
 
 **HOME PAGE** - Search for Pokemon using the search bar, or click on one of the links in the Quick Access list on the right side of the page. Hyperlinks are included to redirect to the Swagger UI endpoint if you wish to use to manually make backend API requests. Hyperlinks are also included to redirect to the healthcheck and WatchDog logger endpoints.
