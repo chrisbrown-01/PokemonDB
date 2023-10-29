@@ -16,7 +16,6 @@ namespace PokemonApi.Controllers
         private readonly IPokemonStatsRepository _pokemonStatsRepo;
         private readonly IPokemonImagesRepository _pokemonImagesRepo;
         private readonly IDistributedCache _pokemonCache;
-        private readonly DistributedCacheEntryOptions _cacheOptions;
 
         public PokemonApiController(
             IPokemonStatsRepository pokemonStatsRepo,
@@ -26,9 +25,6 @@ namespace PokemonApi.Controllers
             _pokemonStatsRepo = pokemonStatsRepo;
             _pokemonImagesRepo = pokemonImagesRepo;
             _pokemonCache = pokemonCache;
-
-            _cacheOptions = new DistributedCacheEntryOptions()
-                    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(30));
         }
 
         [HttpGet("namesNumsImages")]
@@ -65,6 +61,8 @@ namespace PokemonApi.Controllers
                     ImageBase64Data = image.ImageBase64Data
                 });
             }
+
+            var _cacheOptions = new DistributedCacheEntryOptions().SetAbsoluteExpiration(DateTime.Now.AddMinutes(30));
 
             await _pokemonCache.SetAsync("allNamesNumsImages", Encoding.UTF8.GetBytes(JsonSerializer.Serialize(allNamesNumsImages)), _cacheOptions);
 
@@ -160,6 +158,8 @@ namespace PokemonApi.Controllers
                     // from the three columns: name, pokedex_number, "column_name"
                     // Equivalent SQL statement: SELECT * from name, pokedex_number, "column_name"
                     stats = await _pokemonStatsRepo.GetStatsByAttributeAsync(key);
+
+                    var _cacheOptions = new DistributedCacheEntryOptions().SetAbsoluteExpiration(DateTime.Now.AddMinutes(30));
 
                     // Cache the SQL query response since this is a relatively expensive operation. Set cache-key-name to be the column name that was retrieved.
                     await _pokemonCache.SetAsync(key, Encoding.UTF8.GetBytes(JsonSerializer.Serialize(stats)), _cacheOptions);
@@ -293,6 +293,8 @@ namespace PokemonApi.Controllers
 
         private async Task CachePokemonAsync(Pokemon pokemon)
         {
+            var _cacheOptions = new DistributedCacheEntryOptions().SetAbsoluteExpiration(DateTime.Now.AddMinutes(30));
+
             var cacheByNum = _pokemonCache.SetAsync(pokemon.pokedex_number.ToString(), Encoding.UTF8.GetBytes(JsonSerializer.Serialize(pokemon)), _cacheOptions);
             var cacheByName = _pokemonCache.SetAsync(pokemon.name.ToLower(), Encoding.UTF8.GetBytes(JsonSerializer.Serialize(pokemon)), _cacheOptions);
 
